@@ -1,11 +1,10 @@
 from langchain_community.vectorstores import FAISS
-from langchain_openai import OpenAIEmbeddings, ChatOpenAI
+from langchain_openai import OpenAIEmbeddings
 from sqlalchemy.orm import Session
 from app.services.wikipedia_service import fetch_article
 from app.utils.text_processing import chunk_text_by_tokens
 from app.core.llm_config import get_llm
 from app.core.config import settings
-
 
 
 async def answer_question(article_title: str, question: str, db: Session) -> str:
