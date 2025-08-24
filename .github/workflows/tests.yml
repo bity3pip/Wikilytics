@@ -26,3 +26,4 @@ jobs:
       env:
         OPENAI_API_KEY: ${{secrets.OPENAI_API_KEY}}
         WIKIPEDIA_API_URL: ${{secrets.WIKIPEDIA_API_URL}}
+        DATABASE_URL: ${{ secrets.DATABASE_URL }}
