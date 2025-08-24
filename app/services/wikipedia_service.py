@@ -3,11 +3,11 @@ import ssl
 import certifi
 from sqlalchemy.orm import Session
 from app.core.config import settings
-from app.db import crud
+from app.db import utils
 
 
 async def fetch_article(db: Session, title: str) -> str:
-    existing = crud.get_article_by_title(db, title)
+    existing = utils.get_article_by_title(db, title)
     if existing:
         return existing.content
 
@@ -26,5 +26,6 @@ async def fetch_article(db: Session, title: str) -> str:
             content = next(iter(pages.values())).get("extract", "")
 
     if content:
-        crud.create_article(db, title, content)
+        link = f"https://en.wikipedia.org/wiki/{title.replace(' ', '_')}"
+        utils.create_article(db, title, content, link)
     return content

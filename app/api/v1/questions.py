@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
-from app.models.question import QuestionRequest, QuestionResponse
+from app.db.utils_models import QuestionRequest, QuestionResponse
 from app.services.rag_service import answer_question
 from app.db.base import get_db
 
