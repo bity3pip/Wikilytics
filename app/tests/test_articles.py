@@ -1,4 +1,5 @@
 import pytest
+from app.db.models import Article
 
 
 class TestArticles:
@@ -6,12 +7,20 @@ class TestArticles:
         response = client.get("/api/v1/articles/")
         assert response.status_code == 200
 
-    def test_get_article_by_id(self, client):
-        response = client.get("/api/v1/articles/1")
+    def test_get_article_by_id(self, client, db):
+        article = Article(
+            title='title',
+            content='content',
+            link='https://example.com',
+        )
+        db.add(article)
+        db.commit()
+        db.refresh(article)
+
+        response = client.get(f"/api/v1/articles/by-id/{article.id}")
         assert response.status_code == 200
 
     def test_get_article_by_title_failure(self, client):
-
         response = client.get("/api/v1/articles/by-id/123/")
         assert response.status_code == 404
         assert response.json() == {"detail": "Article not found"}
