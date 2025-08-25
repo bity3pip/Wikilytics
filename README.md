@@ -1,4 +1,4 @@
-# 🧐 About
+# 🧐 Wikilytics
 
 Wikilytics is a FastAPI-based web service that lets you explore Wikipedia articles with the help of LLMs. 
 It retrieves articles, preprocesses their content, and uses Retrieval-Augmented Generation (RAG) to answer natural language questions with accuracy and context.
