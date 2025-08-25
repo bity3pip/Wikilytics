@@ -4,11 +4,15 @@ Wikilytics is a FastAPI-based web service that lets you explore Wikipedia articl
 It retrieves articles, preprocesses their content, and uses Retrieval-Augmented Generation (RAG) to answer natural language questions with accuracy and context.
 
 ## 📖Features
-✅Wikipedia integration – fetch full article content directly from the Wikipedia API 
-✅Content preprocessing – clean and chunk articles to provide high-quality context for the model
-✅Question answering – ask natural language questions and get grounded answers using a RAG (Retrieval-Augmented Generation) pipeline powered by LangChain
-✅Article summarization – generate concise summaries of articles
-✅Related resources – return article metadata and useful links alongside answers
+✅ Wikipedia integration – fetch full article content directly from the Wikipedia API 
+
+✅ Content preprocessing – clean and chunk articles to provide high-quality context for the model
+
+✅ Question answering – ask natural language questions and get grounded answers using a RAG (Retrieval-Augmented Generation) pipeline powered by LangChain
+
+✅ Article summarization – generate concise summaries of articles
+
+✅ Related resources – return article metadata and useful links alongside answers
 
 ## ⛏️ Built Using
 - [```Python```](https://www.python.org)
@@ -82,13 +86,13 @@ Create an .env file in root with these keys:
 #### Get all articles
 
 ```http
-  GET /api/v1/articles/
+GET /api/v1/articles/
 ```
 Returns a list of all articles stored in the database.
 
 #### Fetch article from Wikipedia by title
 ```http
-  GET /api/v1/articles/{title}
+GET /api/v1/articles/{title}
 ```
 
 | Parameter | Type     | Description                                                    |
@@ -99,7 +103,7 @@ Returns a list of all articles stored in the database.
 #### Get article by ID (from database)
 
 ```http
-  GET /api/v1/articles/by-id/{article_id}
+GET /api/v1/articles/by-id/{article_id}
 ```
 
 | Parameter    | Type      | Description                                     |
@@ -110,7 +114,7 @@ Returns a list of all articles stored in the database.
 #### Get article summary (from database)
 
 ```http
-  GET /api/v1/articles/summary/{title}
+GET /api/v1/articles/summary/{title}
 ```
 
 | Parameter | Type     | Description                                     |
@@ -120,7 +124,7 @@ Returns a list of all articles stored in the database.
 #### Ask question by OpenAI
 
 ```http
-  GET /api/v1/question
+GET /api/v1/question
 ```
 
 | Parameter       | Type     | Description                                     |
@@ -135,22 +139,22 @@ To run tests, run the following command
 
 ``` cli
 (.venv) Wikilytics % pytest .
-=================================================================================== test session starts ====================================================================================
+==========================================test session starts ==========================================
 platform darwin -- Python 3.11.9, pytest-8.4.1, pluggy-1.6.0
 rootdir: /Wikilytics
 configfile: pytest.ini
 plugins: anyio-4.9.0, mock-3.14.1, langsmith-0.4.14
 collected 8 items                                                                                                                                                                          
 
-app/tests/test_articles.py::TestArticles::test_get_articles PASSED                                                                                                                   [ 12%]
-app/tests/test_articles.py::TestArticles::test_get_article_by_id PASSED                                                                                                              [ 25%]
-app/tests/test_articles.py::TestArticles::test_get_article_by_title_failure PASSED                                                                                                   [ 37%]
-app/tests/test_articles.py::TestArticles::test_find_article_from_wikipedia PASSED                                                                                                    [ 50%]
-app/tests/test_articles.py::TestArticles::test_article_summaries PASSED                                                                                                              [ 62%]
-app/tests/test_articles.py::TestArticles::test_article_summaries_failure PASSED                                                                                                      [ 75%]
-app/tests/test_questions.py::TestQuestions::test_ask_question_success PASSED                                                                                                         [ 87%]
-app/tests/test_questions.py::TestQuestions::test_ask_question_failure PASSED                                                                                                         [100%]
+app/tests/test_articles.py::TestArticles::test_get_articles PASSED                               [ 12%]
+app/tests/test_articles.py::TestArticles::test_get_article_by_id PASSED                          [ 25%]
+app/tests/test_articles.py::TestArticles::test_get_article_by_title_failure PASSED               [ 37%]
+app/tests/test_articles.py::TestArticles::test_find_article_from_wikipedia PASSED                [ 50%]
+app/tests/test_articles.py::TestArticles::test_article_summaries PASSED                          [ 62%]
+app/tests/test_articles.py::TestArticles::test_article_summaries_failure PASSED                  [ 75%]
+app/tests/test_questions.py::TestQuestions::test_ask_question_success PASSED                     [ 87%]
+app/tests/test_questions.py::TestQuestions::test_ask_question_failure PASSED                     [100%]
 
-============================================================================== 8 passed in 0.37s ===========================================================================================
+======================================= 8 passed in 0.37s ==============================================
 ```
 
