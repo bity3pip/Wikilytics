@@ -3,7 +3,7 @@
 Wikilytics is a FastAPI-based web service that lets you explore Wikipedia articles with the help of LLMs. 
 It retrieves articles, preprocesses their content, and uses Retrieval-Augmented Generation (RAG) to answer natural language questions with accuracy and context.
 
-## 📖Features
+## 📖 Features
 ✅ Wikipedia integration – fetch full article content directly from the Wikipedia API 
 
 ✅ Content preprocessing – clean and chunk articles to provide high-quality context for the model
@@ -14,7 +14,7 @@ It retrieves articles, preprocesses their content, and uses Retrieval-Augmented 
 
 ✅ Related resources – return article metadata and useful links alongside answers
 
-## ⛏️ Built Using
+## ⛏️  Built Using
 - [```Python```](https://www.python.org)
 - [```FastAPI```](https://fastapi.tiangolo.com)
 - [```sqlalchemy```](https://www.sqlalchemy.org/)
