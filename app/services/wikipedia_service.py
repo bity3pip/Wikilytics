@@ -20,7 +20,10 @@ async def fetch_article(db: Session, title: str) -> str:
         "format": "json"
     }
     async with aiohttp.ClientSession() as session:
-        async with session.get(settings.wikipedia_api_url, params=params, ssl=ssl_context) as resp:
+        headers = {
+            'User-Agent': 'Wikilytics/0.1 (https://github.com/bity3pip/Wikilytics)'
+        }
+        async with session.get(settings.wikipedia_api_url, params=params, headers=headers, ssl=ssl_context) as resp:
             data = await resp.json()
             pages = data.get("query", {}).get("pages", {})
             content = next(iter(pages.values())).get("extract", "")
